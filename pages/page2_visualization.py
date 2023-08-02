@@ -157,7 +157,7 @@ def loc_ip(start_date, end_date):
     #group_format = '%Y-%m-%d %H:00'
     ip_addresses = df['UserIP'].loc[df['Time'].between(start_date,end_date)]
     ip_addresses = ip_addresses.unique()
-    ip_addresses = ip_addresses[:]
+    ip_addresses = ip_addresses[:40]
 
     def func_thread(n, out):
         out.append(DbIpCity.get(n, api_key="free"))
