@@ -186,12 +186,14 @@ def loc_ip(start_date, end_date):
 
     lats = [loc.latitude for loc in locations if loc is not None]
     lons = [loc.longitude for loc in locations if loc is not None]
-    name = [loc.city + ', ' + loc.region for loc in locations if loc is not None]
+    #name = [loc.city + ', ' + loc.region for loc in locations if loc is not None]
     print(len(lats), lons)
     geo_data = []
     for i in range(len(lats)):
-        geo_data.append((lons[i], lats[i], str(name[i])))
-    geo_df = pd.DataFrame(geo_data, columns=['x', 'y', 'name'])
+        geo_data.append((lons[i], lats[i]#, str(name[i])
+                        ))
+    geo_df = pd.DataFrame(geo_data, columns=['x', 'y'#, 'name'
+                                            ])
     print(len(geo_df['x'].unique()))
     # Create a scatter mapbox trace
     fig = go.Figure(data=go.Scattergeo(
