@@ -6,7 +6,7 @@ import base64
 dash.register_page(__name__, path='/')
 
 layout = html.Div([
-    html.H1("File Upload Example"),
+    html.H1("Upload File Below"),
     dcc.Upload(
         id='upload-data',
         children=html.Div([
